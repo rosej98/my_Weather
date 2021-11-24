@@ -75,9 +75,11 @@ h2 {
 }
 
 .nxtDaysPred {
+  display: block;
   text-align: center;
   font-weight: bolder;
   line-height: 20px;
+  margin: auto;
   margin-top: 20px;
   margin-bottom: 20px;
 }
