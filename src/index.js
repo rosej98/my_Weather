@@ -47,8 +47,6 @@ dte.innerHTML = month + date + " " + day + " " + hour + ":" + minute;
 
 // citySearch.addEventListener("submit", nameCity);
 
-//challenge WK5
-
 function getInfo(event) {
   event.preventDefault();
   let searchBox = document.querySelector("#searchCityName");
