@@ -111,6 +111,8 @@ h2 {
 }
 
 .footer {
+  display: block;
+  margin: auto;
   text-align: center;
   size: bold;
   font-size: 10px;
