@@ -33,20 +33,6 @@ if (minute < 10) {
 let dte = document.querySelector("#dte");
 dte.innerHTML = month + date + " " + day + " " + hour + ":" + minute;
 
-//feauture 2
-// function nameCity(event) {
-//   event.preventDefault();
-//   let citySearch = document.querySelector("#searchCityName");
-
-//   let city = document.querySelector("#cityName");
-
-//   city.innerHTML = citySearch.value;
-// }
-
-// let citySearch = document.querySelector("form");
-
-// citySearch.addEventListener("submit", nameCity);
-
 function getInfo(event) {
   event.preventDefault();
   let searchBox = document.querySelector("#searchCityName");
@@ -54,29 +40,43 @@ function getInfo(event) {
 
   let apiKey = "689efb7d786944e7c1a6b5dddb92c594";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${citySearch}&units=metric`;
-
+  // let apiUrlFuture = `https://api.openweathermap.org/data/2.5/forecast/daily?id=${citySearch}&cnt=6&units=metric`;
   axios.get(`${apiUrl}&appid=${apiKey}`).then(updateInfo);
+  //axios.get(`${apiUrlFuture}&appid=${apiKey}`).then(updateInfo);
 }
 
 function updateInfo(response) {
   let searchBox = document.querySelector("#searchCityName");
   searchBox.value = "";
 
+  let icon = response.data.weather[0].icon;
   let temp = Math.round(response.data.main.temp);
   let tempFeelsLike = Math.round(response.data.main.feels_like);
   let w = response.data.wind.speed;
   let humidity = response.data.main.humidity;
   let visibility = response.data.visibility / 100;
 
+  let imgToday = document.querySelector("#dayIcon");
   let tempBox = document.querySelector("#tempreature");
-  let tempBoxFeelsLike = document.querySelector("#temp2");
+  let tempBoxFeelsLike = document.querySelector("#tempFL");
   let windBox = document.querySelector("#wind");
   let humidityBox = document.querySelector("#humidity");
   let visibiltyBox = document.querySelector("#visibility");
 
+  let t = Math.round(response.data.main.temp);
+  let tFL = Math.round(response.data.main.feels_like);
+
+  let tB1 = document.querySelector("#temp1");
+  let tBFL1 = document.querySelector("#tempFL1");
+
   let cityName = response.data.name;
   let city = document.querySelector("#cityName");
 
+  imgToday.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${icon}@2x.png`
+  );
+  imgToday.setAttribute("alt", response.data.weather[0].description);
   tempBox.innerHTML = temp;
   city.innerHTML = cityName;
   tempBoxFeelsLike.innerHTML = tempFeelsLike;

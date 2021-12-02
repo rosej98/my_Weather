@@ -32,11 +32,12 @@
                 <input
                   type="search"
                   id="searchCityName"
+                  autocomplete="off"
                   placeholder="Search for location (city, country)"
                   autofocus
                 />
                 <button type="submit" class="search" id="city">
-                  <img width="25px" src="image/magnifier.png" />
+                  <img width="22px" src="image/magnifier.png" />
                 </button>
               </div>
               <div class="col-6">
@@ -65,7 +66,7 @@
                 </h2>
                 <small>Feels Like</small>
                 <strong
-                  ><span id="temp2">9</span><span id="unit2">°C </span>
+                  ><span id="tempFL">9</span><span id="unit2">°C </span>
                 </strong>
                 <br />
                 <p id="dte">Fri. Oct.29</p>
@@ -74,7 +75,7 @@
                 <img
                   src="image/sunnycloudySM.png"
                   alt="SunnyCloudy"
-                  class="dayIcon"
+                  id="dayIcon"
                   style="width: 150px; height: 150px"
                 />
               </div>
@@ -131,12 +132,12 @@
                 <div class="card prediction">
                   <div class="card-body">
                     <div class="col-12 card-title">Saturday</div>
-                    <div class="col-12">Oct 30</div>
+                    <div class="col-12" id="day1">Oct 30</div>
                     <div class="col-12">
                       <img src="image/sunnycloudy.png" width="30px" />
                     </div>
-                    <div class="col-12">18°C</div>
-                    <div class="col-12">19°C</div>
+                    <div class="col-12" id="temp1">18°C</div>
+                    <div class="col-12" id="tempFL1">19°C</div>
                     <div class="col-12">8°C</div>
                     <div class="col-12">40%</div>
                   </div>
@@ -146,12 +147,12 @@
                 <div class="card prediction">
                   <div class="card-body">
                     <div class="col-12 card-title">Sunday</div>
-                    <div class="col-12">Oct 31</div>
+                    <div class="col-12" id="day2">Oct 31</div>
                     <div class="col-12">
                       <img src="image/cloudy.png" width="30px" alt="cloudy" />
                     </div>
-                    <div class="col-12">17°C</div>
-                    <div class="col-12">16°C</div>
+                    <div class="col-12" id="temp2">17°C</div>
+                    <div class="col-12" id="tempFL2">16°C</div>
                     <div class="col-12">7°C</div>
                     <div class="col-12">50%</div>
                   </div>
@@ -161,12 +162,12 @@
                 <div class="card prediction">
                   <div class="card-body">
                     <div class="col-12 card-title">Monday</div>
-                    <div class="col-12">Nov 1</div>
+                    <div class="col-12" id="day3">Nov 1</div>
                     <div class="col-12">
                       <img src="image/sunny.png" width="30px" alt="sunny" />
                     </div>
-                    <div class="col-12">19°C</div>
-                    <div class="col-12">19°C</div>
+                    <div class="col-12" id="temp3">19°C</div>
+                    <div class="col-12" id="tempFL3">19°C</div>
                     <div class="col-12">9°C</div>
                     <div class="col-12">10%</div>
                   </div>
@@ -176,12 +177,12 @@
                 <div class="card prediction">
                   <div class="card-body">
                     <div class="col-12 card-title">Tuesday</div>
-                    <div class="col-12">Nov 2</div>
+                    <div class="col-12" id="day4">Nov 2</div>
                     <div class="col-12">
                       <img src="image/sunny.png" width="30px" alt="sunny" />
                     </div>
-                    <div class="col-12">20°C</div>
-                    <div class="col-12">19°C</div>
+                    <div class="col-12" id="temp4">20°C</div>
+                    <div class="col-12" id="tempFL4">19°C</div>
                     <div class="col-12">9°C</div>
                     <div class="col-12">0%</div>
                   </div>
@@ -191,11 +192,11 @@
                 <div class="card prediction">
                   <div class="card-body">
                     <div class="col-12 card-title">Wednesday</div>
-                    <div class="col-12">Oct 27</div>
+                    <div class="col-12" id="day5">Oct 27</div>
                     <div class="col-12">
                       <img src="image/thundstorm.png" width="30px" /> <br />
-                      <div class="col-12">14°C</div>
-                      <div class="col-12">12°C</div>
+                      <div class="col-12" id="temp5">14°C</div>
+                      <div class="col-12" id="tempFL5">12°C</div>
                       <div class="col-12">6°C</div>
                       <div class="col-12">100%</div>
                     </div>
