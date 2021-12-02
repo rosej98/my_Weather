@@ -33,25 +33,27 @@ if (minute < 10) {
 let dte = document.querySelector("#dte");
 dte.innerHTML = month + date + " " + day + " " + hour + ":" + minute;
 
+function search(city) {
+  let apiKey = "689efb7d786944e7c1a6b5dddb92c594";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
+
+  axios.get(`${apiUrl}&appid=${apiKey}`).then(updateInfo);
+}
 function getInfo(event) {
   event.preventDefault();
   let searchBox = document.querySelector("#searchCityName");
   let citySearch = searchBox.value;
-
-  let apiKey = "689efb7d786944e7c1a6b5dddb92c594";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${citySearch}&units=metric`;
-  // let apiUrlFuture = `https://api.openweathermap.org/data/2.5/forecast/daily?id=${citySearch}&cnt=6&units=metric`;
-  axios.get(`${apiUrl}&appid=${apiKey}`).then(updateInfo);
-  //axios.get(`${apiUrlFuture}&appid=${apiKey}`).then(updateInfo);
+  search(citySearch);
 }
 
 function updateInfo(response) {
   let searchBox = document.querySelector("#searchCityName");
   searchBox.value = "";
 
+  tempCurrentCel = Math.round(response.data.main.temp);
+  tempCurrFeelsLikeCel = Math.round(response.data.main.feels_like);
+
   let icon = response.data.weather[0].icon;
-  let temp = Math.round(response.data.main.temp);
-  let tempFeelsLike = Math.round(response.data.main.feels_like);
   let w = response.data.wind.speed;
   let humidity = response.data.main.humidity;
   let visibility = response.data.visibility / 100;
@@ -63,23 +65,26 @@ function updateInfo(response) {
   let humidityBox = document.querySelector("#humidity");
   let visibiltyBox = document.querySelector("#visibility");
 
-  let t = Math.round(response.data.main.temp);
-  let tFL = Math.round(response.data.main.feels_like);
-
-  let tB1 = document.querySelector("#temp1");
-  let tBFL1 = document.querySelector("#tempFL1");
-
   let cityName = response.data.name;
   let city = document.querySelector("#cityName");
+
+  let u = document.querySelector("#unit");
+  let u2 = document.querySelector("#unit2");
+
+  u.innerHTML = "°C";
+  u2.innerHTML = "°C";
+
+  fLink.classList.remove("not_active");
+  cLink.classList.add("not_active");
 
   imgToday.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${icon}@2x.png`
   );
   imgToday.setAttribute("alt", response.data.weather[0].description);
-  tempBox.innerHTML = temp;
+  tempBox.innerHTML = tempCurrentCel;
   city.innerHTML = cityName;
-  tempBoxFeelsLike.innerHTML = tempFeelsLike;
+  tempBoxFeelsLike.innerHTML = tempCurrFeelsLikeCel;
   windBox.innerHTML = w;
   humidityBox.innerHTML = humidity;
   visibiltyBox.innerHTML = visibility;
@@ -88,6 +93,8 @@ function updateInfo(response) {
 let citySearch = document.querySelector("form");
 
 citySearch.addEventListener("submit", getInfo);
+
+search("Tehran");
 
 function getLocation(position) {
   let lon = position.coords.longitude;
@@ -107,65 +114,46 @@ function getCurrentLocation(event) {
 let btn = document.querySelector("#currntLoc");
 btn.addEventListener("click", getCurrentLocation);
 
-//feauture 3
-
-function tempConvCF(event) {
+function displayFa(event) {
   event.preventDefault();
 
-  let f = document.querySelector("#F");
-  let c = document.querySelector("#C");
   let temp = document.querySelector("#tempreature");
-  let temp2 = document.querySelector("#temp2");
+  let temp2 = document.querySelector("#tempFL");
   let u = document.querySelector("#unit");
   let u2 = document.querySelector("#unit2");
-  let conTemp = parseFloat((temp.innerHTML * 1.8 + 32).toFixed(2));
-  let conTemp2 = parseFloat((temp2.innerHTML * 1.8 + 32).toFixed(2));
+  let conTemp = Math.round(tempCurrentCel * 1.8 + 32);
+  let conTemp2 = Math.round(tempCurrFeelsLikeCel * 1.8 + 32);
 
-  if (u.innerHTML.trim() === "°C") {
-    return false;
-  } else {
-    temp.innerHTML = conTemp2;
-    temp2.innerHTML = conTemp;
-    u.innerHTML = "°C";
-    u2.innerHTML = "°C";
-    c.setAttribute("style", "text-decoration: underline;");
-    f.setAttribute("style", "text-decoration: none;");
-  }
+  cLink.classList.remove("not_active");
+  fLink.classList.add("not_active");
+  temp.innerHTML = conTemp;
+  temp2.innerHTML = conTemp2;
+  u.innerHTML = "°F";
+  u2.innerHTML = "°F";
 }
 
-function tempConvFC(event) {
+function displayCe(event) {
   event.preventDefault();
 
-  let f = document.querySelector("#F");
-  let c = document.querySelector("#C");
   let temp = document.querySelector("#tempreature");
-  let temp2 = document.querySelector("#temp2");
+  let temp2 = document.querySelector("#tempFL");
   let u = document.querySelector("#unit");
   let u2 = document.querySelector("#unit2");
-  let conTemp = parseFloat(((temp.innerHTML - 32) * 0.5556).toFixed(2));
-  let conTemp2 = parseFloat(((temp2.innerHTML - 32) * 0.5556).toFixed(2));
 
-  if (u.innerHTML === "°F") {
-    return false;
-  } else {
-    temp.innerHTML = conTemp;
-    temp2.innerHTML = conTemp2;
-    u.innerHTML = "°F";
-    u2.innerHTML = "°F";
-    f.setAttribute("style", "text-decoration: underline;");
-    c.setAttribute("style", "text-decoration: none;");
-  }
+  fLink.classList.remove("not_active");
+  cLink.classList.add("not_active");
+
+  temp.innerHTML = tempCurrentCel;
+  temp2.innerHTML = tempCurrFeelsLikeCel;
+  u.innerHTML = "°C";
+  u2.innerHTML = "°C";
 }
 
-let c = document.querySelector("#C");
-c.addEventListener("click", tempConvCF);
+let cLink = document.querySelector("#C_Link");
+cLink.addEventListener("click", displayCe);
 
-let f = document.querySelector("#F");
-f.addEventListener("click", tempConvFC);
+let fLink = document.querySelector("#F_Link");
+fLink.addEventListener("click", displayFa);
 
-let u = document.querySelector("#unit");
-if (u.innerHTML.trim() === "°C") {
-  c.setAttribute("textDecoration", "underline");
-} else {
-  f.setAttribute("textDecoration", "underline");
-}
+let tempCurrentCel = null;
+let tempCurrFeelsLikeCel = null;
