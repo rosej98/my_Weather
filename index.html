@@ -61,16 +61,16 @@
             </div>
             <div class="row selectedCity">
               <div class="col-3">
-                <h1 id="cityName">Tehran</h1>
+                <h1 id="cityName"></h1>
                 <h2>
-                  <span id="tempreature">11</span><span id="unit">°C </span>
+                  <span id="tempreature"></span><span id="unit">°C </span>
                 </h2>
                 <small>Feels Like</small>
                 <strong
-                  ><span id="tempFL">9</span><span id="unit2">°C </span>
+                  ><span id="tempFL"></span><span id="unit2">°C </span>
                 </strong>
                 <br />
-                <p id="dte">Fri. Oct.29</p>
+                <p id="dte"></p>
               </div>
               <div class="col-3">
                 <img
@@ -84,7 +84,7 @@
                 <div class="card details">
                   <div class="col-12 card-body">Wind</div>
                   <div class="col-12">
-                    <span id="wind">19</span> <span>km/h</span>
+                    <span id="wind"></span> <span>km/h</span>
                   </div>
                 </div>
               </div>
@@ -92,7 +92,7 @@
                 <div class="card details">
                   <div class="col-12 card-body">Humidity</div>
                   <div class="col-12">
-                    <span id="humidity">28</span><span>%</span>
+                    <span id="humidity"></span><span>%</span>
                   </div>
                 </div>
               </div>
@@ -100,117 +100,21 @@
                 <div class="card details">
                   <div class="col-12 card-body">Visibilty</div>
                   <div class="col-12">
-                    <span id="visibility">10</span><span>%</span>
+                    <span id="visibility"></span><span>%</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="nxtDaysPred">Next 5 Days</div>
-          <div class="container-fluid">
-            <div class="row text-center">
-              <div class="col legend">
-                <br />
-                <br />
-                <label for="html"
-                  >Temp.
-                  <i class="fas fa-hand-point-right"></i>
-                </label>
-                <br />
-                <label for="html"
-                  >Feels like <i class="fas fa-hand-point-right"></i
-                ></label>
-                <br />
-                <label for="html"
-                  >Night <i class="fas fa-hand-point-right"></i
-                ></label>
-                <br />
-                <label for="html"
-                  >POP <i class="fas fa-hand-point-right"></i
-                ></label>
-              </div>
-              <div class="col">
-                <div class="card prediction">
-                  <div class="card-body">
-                    <div class="col-12 card-title">Saturday</div>
-                    <div class="col-12" id="day1">Oct 30</div>
-                    <div class="col-12">
-                      <img src="image/sunnycloudy.png" width="30px" />
-                    </div>
-                    <div class="col-12" id="temp1">18°C</div>
-                    <div class="col-12" id="tempFL1">19°C</div>
-                    <div class="col-12">8°C</div>
-                    <div class="col-12">40%</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card prediction">
-                  <div class="card-body">
-                    <div class="col-12 card-title">Sunday</div>
-                    <div class="col-12" id="day2">Oct 31</div>
-                    <div class="col-12">
-                      <img src="image/cloudy.png" width="30px" alt="cloudy" />
-                    </div>
-                    <div class="col-12" id="temp2">17°C</div>
-                    <div class="col-12" id="tempFL2">16°C</div>
-                    <div class="col-12">7°C</div>
-                    <div class="col-12">50%</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card prediction">
-                  <div class="card-body">
-                    <div class="col-12 card-title">Monday</div>
-                    <div class="col-12" id="day3">Nov 1</div>
-                    <div class="col-12">
-                      <img src="image/sunny.png" width="30px" alt="sunny" />
-                    </div>
-                    <div class="col-12" id="temp3">19°C</div>
-                    <div class="col-12" id="tempFL3">19°C</div>
-                    <div class="col-12">9°C</div>
-                    <div class="col-12">10%</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card prediction">
-                  <div class="card-body">
-                    <div class="col-12 card-title">Tuesday</div>
-                    <div class="col-12" id="day4">Nov 2</div>
-                    <div class="col-12">
-                      <img src="image/sunny.png" width="30px" alt="sunny" />
-                    </div>
-                    <div class="col-12" id="temp4">20°C</div>
-                    <div class="col-12" id="tempFL4">19°C</div>
-                    <div class="col-12">9°C</div>
-                    <div class="col-12">0%</div>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card prediction">
-                  <div class="card-body">
-                    <div class="col-12 card-title">Wednesday</div>
-                    <div class="col-12" id="day5">Oct 27</div>
-                    <div class="col-12">
-                      <img src="image/thundstorm.png" width="30px" /> <br />
-                      <div class="col-12" id="temp5">14°C</div>
-                      <div class="col-12" id="tempFL5">12°C</div>
-                      <div class="col-12">6°C</div>
-                      <div class="col-12">100%</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <br />
-            <div class="footer">
-              <a href="https://github.com/rosej98/my_Weather" target="_blank"
-                >Open-source code</a
-              >, by R J
-            </div>
+          <div class="weather-forecast" id="forecast">            
+          </div>
+        </div>            
+          <br />
+          <div class="footer">
+            <a href="https://github.com/rosej98/my_Weather" target="_blank"
+              >Open-source code</a
+            >, by R J
           </div>
         </div>
       </form>

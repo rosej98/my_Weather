@@ -109,11 +109,13 @@ h2 {
 }
 
 .legend {
-  padding-top: 65px;
+  padding-top: 22px;
   padding-left: 0px;
+  padding-bottom: 2px;
   margin-left: 10px;
   text-align: right;
-  font-size: 15px;
+  line-height: 21px;
+  font-size: 13px;
   font: bolder;
 }
 
@@ -124,4 +126,8 @@ h2 {
   size: bold;
   font-size: 10px;
   font-family: "Montserrat", Arial, sans-serif;
+}
+
+.col-12 {
+  text-align: center;
 }
