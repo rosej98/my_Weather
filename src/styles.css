@@ -6,19 +6,6 @@
   font-family: "Montserrat", Cerebri Sans, Helvetica, Arial, sans-serif;
 }
 
-#nameofCity {
-  width: 300px;
-  text-align: center;
-  border-radius: 20px;
-  line-height: 40px;
-  background-color: #badde4;
-  position: relative;
-  float: center;
-  font: bold;
-  box-shadow: none;
-  border: 1mm ridge rgba(0, 0, 0, 0.1);
-}
-
 .search {
   border: none;
   background-color: #badde4;
@@ -70,10 +57,6 @@ h2 {
   font: bolder;
 }
 
-.last {
-  padding-right: 50px;
-}
-
 .dayIcon {
   padding-top: 15px;
   padding-left: 5px;
@@ -89,23 +72,11 @@ h2 {
   margin-bottom: 20px;
 }
 
-.pic {
-  display: block;
-  margin-top: 20px;
-  width: 20px;
-  height: 20px;
-  border: solid 2px red;
-}
-
 .details {
   margin-top: 20px;
   padding-bottom: 10px;
   background-color: #ececec;
   font-size: bolder;
-}
-
-.prediction {
-  background-color: #eaf6f6;
 }
 
 .legend {
