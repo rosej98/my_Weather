@@ -74,9 +74,6 @@ function updateInfo(response) {
   u.innerHTML = "°C";
   u2.innerHTML = "°C";
 
-  fLink.classList.remove("not_active");
-  cLink.classList.add("not_active");
-
   imgToday.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${icon}@2x.png`
@@ -115,47 +112,6 @@ function getCurrentLocation(event) {
 
 let btn = document.querySelector("#currntLoc");
 btn.addEventListener("click", getCurrentLocation);
-
-function displayFa(event) {
-  event.preventDefault();
-
-  let temp = document.querySelector("#tempreature");
-  let temp2 = document.querySelector("#tempFL");
-  let u = document.querySelector("#unit");
-  let u2 = document.querySelector("#unit2");
-  let conTemp = Math.round(tempCurrentCel * 1.8 + 32);
-  let conTemp2 = Math.round(tempCurrFeelsLikeCel * 1.8 + 32);
-
-  cLink.classList.remove("not_active");
-  fLink.classList.add("not_active");
-  temp.innerHTML = conTemp;
-  temp2.innerHTML = conTemp2;
-  u.innerHTML = "°F";
-  u2.innerHTML = "°F";
-}
-
-function displayCe(event) {
-  event.preventDefault();
-
-  let temp = document.querySelector("#tempreature");
-  let temp2 = document.querySelector("#tempFL");
-  let u = document.querySelector("#unit");
-  let u2 = document.querySelector("#unit2");
-
-  fLink.classList.remove("not_active");
-  cLink.classList.add("not_active");
-
-  temp.innerHTML = tempCurrentCel;
-  temp2.innerHTML = tempCurrFeelsLikeCel;
-  u.innerHTML = "°C";
-  u2.innerHTML = "°C";
-}
-
-let cLink = document.querySelector("#C_Link");
-cLink.addEventListener("click", displayCe);
-
-let fLink = document.querySelector("#F_Link");
-fLink.addEventListener("click", displayFa);
 
 let tempCurrentCel = null;
 let tempCurrFeelsLikeCel = null;
@@ -261,7 +217,6 @@ function displayForecast(response) {
                   </div>
                 </div>
               </div>`;
-      console.log(response.data);
     }
   });
 
